@@ -1,0 +1,55 @@
+{% extends 'FormModule/base.html'%}
+
+{% load static %}
+
+{% load humanize %}
+
+{% block css %}
+<link rel="stylesheet" href="{%static 'FormModule/css/datos_style.css'%}">
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
+
+{% block contenido %}
+    <h1>ESTOS SON LOS DATOS ALMACENADOS ACTUALMENTE EN LA BASE DE DATOS</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Primer Nombre</th>
+                <th>Segundo Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Documento</th>
+                <th>Número de Documento</th>
+                <th>Correo Electrónico</th>
+                <th>Número de Celular</th>
+                <th>Ciudad</th>
+                <th>Dirección</th>
+                <th>Ingresos</th>
+                <th>Actividad Económica</th>
+                <th>Franquicia</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in Datos_Clientes %}
+                <tr>
+                    <td>{{ d.primer_nombre | capfirst}}</td>
+                    <td>{{ d.segundo_nombre | capfirst }}</td>
+                    <td>{{ d.primer_apellido | capfirst}}</td>
+                    <td>{{ d.segundo_apellido | capfirst}}</td>
+                    <td>{{ d.documento }}</td>
+                    <td>{{ d.numero_documento | intcomma}}</td>
+                    <td>{{ d.correo }}</td>
+                    <td>{{ d.celular }}</td>
+                    <td>{{ d.ciudad | capfirst}}</td>
+                    <td>{{ d.direccion | title}}</td>
+                    <td>${{ d.ingresos | intcomma}}</td>
+                    <td>{{ d.actividad | capfirst}}</td>
+                    <td>{{ d.franquicia }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock contenido %}

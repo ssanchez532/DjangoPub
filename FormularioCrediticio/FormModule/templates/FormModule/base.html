@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Registro</title>
+  {% load static%}
+
+  {% block css %}
+
+  {% endblock %}
+
+  <link rel="stylesheet" href="{%static 'FormModule/css/base_style.css'%}">
+</head>
+<body>
+    <header>
+        <nav>
+          <ul>
+            <li><a href="{% url 'home' %}">FORMULARIO</a></li>
+            <li><a href="{% url 'datos' %}">BASE DE DATOS</a></li>
+          </ul>
+        <nav>
+    </header>
+        <main class="content">
+            <b>
+                {%block contenido%}
+                {%endblock contenido%}
+            </b>
+        </main> 
+    <!--<footer>
+        <nav>
+        </nav>
+    </footer>-->
+    {% block js %}
+
+    {% endblock %}
+
+</body>
+</html>
+
+

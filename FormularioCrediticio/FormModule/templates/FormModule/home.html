@@ -1,0 +1,62 @@
+{% extends 'FormModule/base.html'%}
+
+{% load static%}
+
+{% block css %}
+<link rel="stylesheet" href="{%static 'FormModule/css/home_style.css'%}">
+{% endblock %}
+
+{% block js %}
+<script src="{%static '/FormModule/js/home_script.js'%}"></script>
+<script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+{% endblock %}
+
+{%block contenido%}
+
+<form method="POST">
+  {% csrf_token %}
+  
+  {{ Datos_Form.primer_nombre.label_tag }}
+  {{ Datos_Form.primer_nombre }}
+
+  {{ Datos_Form.segundo_nombre.label_tag }}
+  {{ Datos_Form.segundo_nombre }}
+
+  {{ Datos_Form.primer_apellido.label_tag }}
+  {{ Datos_Form.primer_apellido }}
+
+  {{ Datos_Form.segundo_apellido.label_tag }}
+  {{ Datos_Form.segundo_apellido }}
+
+  <label for="tipo_documento">Tipo de documento:</label>
+  {{ Datos_Form.documento }}
+
+  {{ Datos_Form.numero_documento.label_tag }}
+  {{ Datos_Form.numero_documento }}
+
+  {{ Datos_Form.correo.label_tag }}
+  {{ Datos_Form.correo }}
+
+  {{ Datos_Form.celular.label_tag }}
+  {{ Datos_Form.celular }}
+
+  {{ Datos_Form.ciudad.label_tag }}
+  {{ Datos_Form.ciudad }}
+
+  {{ Datos_Form.direccion.label_tag }}
+  {{ Datos_Form.direccion }}
+
+  {{ Datos_Form.ingresos.label_tag }}
+  {{ Datos_Form.ingresos }}
+
+  {{ Datos_Form.actividad.label_tag }}
+  {{ Datos_Form.actividad }}
+
+  <label for="tipo_franquicia">Tipo de franquicia:</label>
+  {{ Datos_Form.franquicia }}
+
+  <button type="submit" id="btenviar">Enviar</button>
+</form>
+
+{{mensaje}}
+{%endblock contenido%}

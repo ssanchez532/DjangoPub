@@ -1,0 +1,70 @@
+{% extends 'FormModule/base.html'%}
+
+{% load static%}
+
+{% block css %}
+<link rel="stylesheet" href="{%static 'FormModule/css/home_style.css'%}">
+{% endblock %}
+
+{% block js %}
+<script src="{%static '/FormModule/js/home_script.js'%}"></script>
+<script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+{% endblock %}
+
+{%block contenido%}
+
+<form action="#" method="POST">
+  <label for="Primer_Nombre">Primer Nombre:</label>
+  <input type="text" id="Primer_Nombre" name="Primer_Nombre" required onkeypress="return soloLetras(event)">
+  
+  <label for="Segundo_Nombre">Segundo Nombre (opcional):</label>
+  <input type="text" id="Segundo_Nombre" name="Segundo_Nombre" onkeypress="return soloLetras(event)">
+  
+  <label for="Primer_Apellido">Primer Apellido:</label>
+  <input type="text" id="Primer_Apellido" name="Primer_Apellido" required onkeypress="return soloLetras(event)">
+  
+  <label for="Segundo_Apellido">Segundo Apellido (opcional):</label>
+  <input type="text" id="Segundo_Apellido" name="Segundo_Apellido" required onkeypress="return soloLetras(event)">
+  
+  <label for="tipo_documento">Tipo de documento:</label>
+  <select id="tipo_documento" name="tipo_documento" required>
+    <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
+    <option value="Pasaporte">Pasaporte</option>
+    <option value="Cédula de Extranjería">Cédula de Extranjería</option>
+  </select>
+
+  <label for="numero_documento">Numero de documento:</label>
+  <input type="text" id="numero_documento" name="numero_documento" required onkeypress="return soloNumeros(event)">
+
+  <label for="correo_electronico">Correo electrónico:</label>
+  <input type="email" id="correo_electronico" name="correo_electronico" required>
+  
+  <!--<label for="direccion_solicitante">Dirección del solicitante:</label>
+  <input type="text" id="direccion_solicitante" name="direccion_solicitante" required>-->
+  
+  <label for="numero_celular">Número de celular:</label>
+  <input type="tel" id="numero_celular" name="numero_celular" required onkeypress="return soloNumeros(event)">
+  
+  <label for="ciudad">Ciudad:</label>
+  <input type="text" id="ciudad" name="ciudad" required>
+  
+  <label for="direccion">Dirección:</label>
+  <input type="text" id="direccion" name="direccion" required>
+  
+  <label for="nivel_ingresos">Nivel de ingresos:</label>
+  <input type="text" id="nivel_ingresos" name="nivel_ingresos" oninput="formatoMoneda(event)" required>
+
+  <label for="actividad_economica">Actividad económica:</label>
+  <input type="text" id="actividad_economica" name="actividad_economica" required onkeypress="return soloLetras(event)">
+
+  <label for="tipo_franquicia">Tipo de franquicia:</label>
+  <select id="tipo_franquicia" name="tipo_franquicia" required>
+    <option value="Visa">Visa</option>
+    <option value="MasterCard">Master Card</option>
+    <option value="AmericanExpress">American Express</option>
+  </select>
+  
+  <button type="submit">Enviar</button>
+</form>
+
+{%endblock contenido%}
